@@ -1,5 +1,0 @@
-streamlit
-matplotlib
-numpy
-sympy
-streamlit_option_menu
