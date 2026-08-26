@@ -12,18 +12,22 @@ if selected == "ผลต่างกำลังสอง":
 
     st.title("*ผลต่างกำลังสอง*")
 
-    x = int(st.text_input("ใส่ค่า $x$"))
-    y = int(st.text_input("ใส่ค่า $y$"))
+    x = st.text_input("ใส่ค่า $x$")
+    y = st.text_input("ใส่ค่า $y$")
 
     if x != "" and y != "":
+        x = int(x)
+        y = int(y)
         st.markdown(f"ผลลัพธ์: ({x}+{y})({x}-{y})")
 if selected == "กำลังสองสมบูรณ์":
 
     st.title("*กำลังสองสมบูรณ์*")
 
-    x = int(st.text_input("ใส่ค่า $x$"))
-    y = int(st.text_input("ใส่ค่า $y$"))
+    x = st.text_input("ใส่ค่า $x$")
+    y = st.text_input("ใส่ค่า $y$")
     if x != "" and y != "":
+        x = int(x)
+        y = int(y)
         ans1 = f"{x}**2 + {2*x*y} + {y}**2"
         ans2 = f"{x}**2 - {2*x*y} + {y}**2"
         st.text(f"ผลลัพธ์จากสูตร (x+y)**2: {ans1}")
@@ -31,4 +35,3 @@ if selected == "กำลังสองสมบูรณ์":
         st.text("")
         st.text(f"ผลลัพธ์จากสูตร (x-y)**2: {ans2}")
         st.text(f"เท่ากับ {(x**2) - (2*x*y) + (y**2)}")
-
