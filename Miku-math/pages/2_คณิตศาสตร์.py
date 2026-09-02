@@ -44,7 +44,7 @@ if selected == "สูตรกำลังสอง(Quadratic Formula)":
     b = st.text_input("b:")
     c = st.text_input("c:")
 
-    if x != "" and y != "":
+    if a != "" and b != "" and c != "":
         a = int(a)
         b = int(b)
         c = int(c)
