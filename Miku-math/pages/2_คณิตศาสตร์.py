@@ -40,36 +40,40 @@ if selected == "สูตรกำลังสอง(Quadratic Formula)":
 
     st.title("*สูตรกำลังสอง(Quadratic Formula)*")
 
-    a = int(input("a:"))
-    b = int(input("b:"))
-    c = int(input("c:"))
+    a = st.text_input("a:")
+    b = st.text_input("b:")
+    c = st.text_input("c:")
 
-    Discriminant = (b**2) - (4*a*c)
+    if x != "" and y != "":
+        a = int(a)
+        b = int(b)
+        c = int(c)
+        Discriminant = (b**2) - (4*a*c)
 
-    def equation(a,b,c):
-        sqrt = np.sqrt((b**2) - (4*a*c))
-        try:
-            CheckSqrt = str(int(sqrt))
-        except ValueError:
-            CheckSqrt = str((sqrt))
+        def equation(a,b,c):
+            sqrt = np.sqrt((b**2) - (4*a*c))
+            try:
+                CheckSqrt = str(int(sqrt))
+            except ValueError:
+                CheckSqrt = str((sqrt))
             print(sqrt)
             print("เป็นทศนิยม")
-        if "." in CheckSqrt and Discriminant >= 0:
-            st.text(f"-({b}) ± sqrt({Discriminant}) / {2*a}")
+            if "." in CheckSqrt and Discriminant >= 0:
+                st.text(f"-({b}) ± sqrt({Discriminant}) / {2*a}")
 
-        elif Discriminant > 0:
-            if ((-1 * b) + sqrt) % (2*a) == 0:
-               st.text(f"{int(((-1 * b) + sqrt) / (2*a))}  , {int(((-1 * b) - sqrt) / (2*a))}")
-            else:         
-               st.text(f"{int((-1 * b) + sqrt)} / {2*a} , {int((-1 * b) - sqrt)} / {2*a}")
+            elif Discriminant > 0:
+                if ((-1 * b) + sqrt) % (2*a) == 0:
+                   st.text(f"{int(((-1 * b) + sqrt) / (2*a))}  , {int(((-1 * b) - sqrt) / (2*a))}")
+                else:         
+                   st.text(f"{int((-1 * b) + sqrt)} / {2*a} , {int((-1 * b) - sqrt)} / {2*a}")
 
-        elif Discriminant == 0:
-            if ((-1 * b) + sqrt) % (2*a) == 0:
-               st.text(f"{int((-1 * b) / (2*a))}")
-            else:         
-                st.text(f"{int((-1 * b))} / {2*a}")
+            elif Discriminant == 0:
+                if ((-1 * b) + sqrt) % (2*a) == 0:
+                   st.text(f"{int((-1 * b) / (2*a))}")
+                else:         
+                    st.text(f"{int((-1 * b))} / {2*a}")
 
-        elif Discriminant < 0:
-            st.text("ไม่มีคำตอบเป็นจำนวนจริง")
+            elif Discriminant < 0:
+                st.text("ไม่มีคำตอบเป็นจำนวนจริง")
 
-    equation(a,b,c)   
+        equation(a,b,c)
