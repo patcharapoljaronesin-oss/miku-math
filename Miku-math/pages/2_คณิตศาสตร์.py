@@ -52,13 +52,11 @@ if selected == "สูตรกำลังสอง(Quadratic Formula)":
 
         def equation(a,b,c):
             sqrt = np.sqrt((b**2) - (4*a*c))
-            try:
-                CheckSqrt = str(int(sqrt))
-            except ValueError:
-                CheckSqrt = str((sqrt))
+            CheckSqrt = str(sqrt)
+
             print(sqrt)
             print("เป็นทศนิยม")
-            if "." in CheckSqrt and Discriminant >= 0:
+            if "." in CheckSqrt and CheckSqrt[CheckSqrt.index(".")+2] and Discriminant >= 0:
                 st.text(f"-({b}) ± sqrt({Discriminant}) / {2*a}")
 
             elif Discriminant > 0:
