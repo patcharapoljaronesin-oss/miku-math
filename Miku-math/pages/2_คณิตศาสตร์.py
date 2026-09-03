@@ -5,7 +5,7 @@ from streamlit_option_menu import option_menu
 with st.sidebar:
     selected = option_menu(
         menu_title="สูตร",
-        options=["ผลต่างกำลังสอง", "กำลังสองสมบูรณ์", "สูตรกำลังสอง(Quadratic Formula)"],
+        options=["ผลต่างกำลังสอง", "กำลังสองสมบูรณ์", "สูตรกำลังสอง(Quadratic Formula)", "ผลบวก/ลบกำลังสาม"],
         icons=["1-circle", "2-circle"],
         menu_icon="calculator"
     )
