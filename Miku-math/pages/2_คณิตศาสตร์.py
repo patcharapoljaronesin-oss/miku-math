@@ -76,7 +76,7 @@ if selected == "สูตรกำลังสอง(Quadratic Formula)":
 
         equation(a,b,c)
 if selected == "ผลบวก/ลบกำลังสาม":
-    st.title("*ผลต่างกำลังสอง*")
+    st.title("*ผลบวก/ลบกำลังสาม*")
 
     x = st.text_input("ใส่ค่า $x$")
     y = st.text_input("ใส่ค่า $y$")
@@ -84,8 +84,8 @@ if selected == "ผลบวก/ลบกำลังสาม":
     if x != "" and y != "":
         x = int(x)
         y = int(y)
-        st.markdown("*ผลบวกกำลังสาม*")
+        st.header("*ผลบวกกำลังสาม*")
         st.markdown(f"ผลลัพธ์: ({x}+{y})({x**2}-{x*y}+{y**2})")
         st.markdown("")
-        st.markdown("*ผลต่างกำลังสาม*")
-        st.markdown(f"ผลลัพธ์: ({x}-{y})({x**2}+{x*y}-{y**2})")
+        st.header("*ผลต่างกำลังสาม*")
+        st.markdown(f"ผลลัพธ์: ({x}-{y})({x**2}+{x*y}-{y**2})")   
