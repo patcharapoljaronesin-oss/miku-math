@@ -1,5 +1,6 @@
 import streamlit as st
 import numpy as np
+import random
 from streamlit_option_menu import option_menu
 
 with st.sidebar:
@@ -82,10 +83,17 @@ if selected == "ผลบวก/ลบกำลังสาม":
     y = st.text_input("ใส่ค่า $y$")
 
     if x != "" and y != "":
-        x = int(x)
-        y = int(y)
-        st.header("*ผลบวกกำลังสาม*")
-        st.markdown(f"ผลลัพธ์: ({x}+{y})({x**2}-{x*y}+{y**2})")
-        st.markdown("")
-        st.header("*ผลต่างกำลังสาม*")
-        st.markdown(f"ผลลัพธ์: ({x}-{y})({x**2}+{x*y}-{y**2})")   
+        try:
+            x = int(x)
+            y = int(y)
+            st.header("*ผลบวกกำลังสาม*")
+            st.markdown(f"ผลลัพธ์: ({x}+{y})({x**2}-{x*y}+{y**2})")
+            st.markdown("")
+            st.header("*ผลต่างกำลังสาม*")
+            st.markdown(f"ผลลัพธ์: ({x}-{y})({x**2}+{x*y}-{y**2})") 
+        except ValueError:
+            st.header("*ผลบวกกำลังสาม*")
+            st.markdown(f"ผลลัพธ์: ({x}+{y})(({x})**2-({x})({y})+({y})**2")
+            st.markdown("")
+            st.header("*ผลต่างกำลังสาม*")
+            st.markdown(f"ผลลัพธ์: ({x}-{y})(({x})**2+({x})({y})-({y})**2")
