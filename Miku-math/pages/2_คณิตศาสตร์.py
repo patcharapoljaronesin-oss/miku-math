@@ -92,8 +92,24 @@ if selected == "ผลบวก/ลบกำลังสาม":
             st.header("*ผลต่างกำลังสาม*")
             st.markdown(f"ผลลัพธ์: ({x}-{y})({x**2}+{x*y}-{y**2})") 
         except ValueError:
-            st.header("*ผลบวกกำลังสาม*")
-            st.markdown(f"ผลลัพธ์: ({x}+{y})(({x})**2-({x})({y})+({y})**2)")
-            st.markdown("")
-            st.header("*ผลต่างกำลังสาม*")
-            st.markdown(f"ผลลัพธ์: ({x}-{y})(({x})**2+({x})({y})-({y})**2)")
+            try:
+                x = int(x)
+                st.header("*ผลบวกกำลังสาม*")
+                st.markdown(f"ผลลัพธ์: ({x}+{y})({x**2}-({x})({y})+({y})**2)")
+                st.markdown("")
+                st.header("*ผลต่างกำลังสาม*")
+                st.markdown(f"ผลลัพธ์: ({x}-{y})({x**2}+({x})({y})-({y})**2)")
+            except ValueError:
+                try:
+                    y = int(y)
+                    st.header("*ผลบวกกำลังสาม*")
+                    st.markdown(f"ผลลัพธ์: ({x}+{y})({x**2}-({x})({y})+{y**2})")
+                    st.markdown("")
+                    st.header("*ผลต่างกำลังสาม*")
+                    st.markdown(f"ผลลัพธ์: ({x}-{y})({x**2}+({x})({y})-{y**2})")
+                except ValueError:
+                    st.header("*ผลบวกกำลังสาม*")
+                    st.markdown(f"ผลลัพธ์: ({x}+{y})(({x})**2-({x})({y})+({y})**2)")
+                    st.markdown("")
+                    st.header("*ผลต่างกำลังสาม*")
+                    st.markdown(f"ผลลัพธ์: ({x}-{y})(({x})**2+({x})({y})-({y})**2)")
