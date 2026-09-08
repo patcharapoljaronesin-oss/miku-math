@@ -93,7 +93,7 @@ if selected == "ผลบวก/ลบกำลังสาม":
             st.markdown(f"ผลลัพธ์: ({x}-{y})({x**2}+{x*y}-{y**2})") 
         except ValueError:
             st.header("*ผลบวกกำลังสาม*")
-            st.markdown(f"ผลลัพธ์: ({x}+{y})(({x})**2-({x})({y})+({y})**2")
+            st.markdown(f"ผลลัพธ์: ({x}+{y})(({x})**2-({x})({y})+({y})**2)")
             st.markdown("")
             st.header("*ผลต่างกำลังสาม*")
-            st.markdown(f"ผลลัพธ์: ({x}-{y})(({x})**2+({x})({y})-({y})**2")
+            st.markdown(f"ผลลัพธ์: ({x}-{y})(({x})**2+({x})({y})-({y})**2)")
