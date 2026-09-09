@@ -7,7 +7,7 @@ with st.sidebar:
     selected = option_menu(
         menu_title="สูตร",
         options=["ผลต่างกำลังสอง", "กำลังสองสมบูรณ์", "สูตรกำลังสอง(Quadratic Formula)", "ผลบวก/ลบกำลังสาม"],
-        icons=["1-circle", "2-circle"],
+        icons=["1-circle", "2-circle", "3-circle","4-circle"],
         menu_icon="calculator"
     )
 if selected == "ผลต่างกำลังสอง":
@@ -18,25 +18,55 @@ if selected == "ผลต่างกำลังสอง":
     y = st.text_input("ใส่ค่า $y$")
 
     if x != "" and y != "":
-        x = int(x)
-        y = int(y)
         st.markdown(f"ผลลัพธ์: ({x}+{y})({x}-{y})")
+
 if selected == "กำลังสองสมบูรณ์":
 
     st.title("*กำลังสองสมบูรณ์*")
 
     x = st.text_input("ใส่ค่า $x$")
     y = st.text_input("ใส่ค่า $y$")
+
     if x != "" and y != "":
-        x = int(x)
-        y = int(y)
-        ans1 = f"{x}**2 + {2*x*y} + {y}**2"
-        ans2 = f"{x}**2 - {2*x*y} + {y}**2"
-        st.text(f"ผลลัพธ์จากสูตร (x+y)**2: {ans1}")
-        st.text(f"เท่ากับ {(x**2) + (2*x*y) + (y**2)}")
-        st.text("")
-        st.text(f"ผลลัพธ์จากสูตร (x-y)**2: {ans2}")
-        st.text(f"เท่ากับ {(x**2) - (2*x*y) + (y**2)}")
+        try:
+            x = int(x)
+            y = int(y)
+            ans1 = f"{x}**2 + {2*x*y} + {y}**2"
+            ans2 = f"{x}**2 - {2*x*y} + {y}**2"
+            st.text(f"ผลลัพธ์จากสูตร (x+y)**2: {ans1}")
+            st.text(f"เท่ากับ {(x**2) + (2*x*y) + (y**2)}")
+            st.text("")
+            st.text(f"ผลลัพธ์จากสูตร (x-y)**2: {ans2}")
+            st.text(f"เท่ากับ {(x**2) - (2* x*y) + (y**2)}") 
+        except ValueError:
+            try:
+                x = int(x)
+                ans1 = f"{x}**2 + ({2*x})({y}) + {y}**2"
+                ans2 = f"{x}**2 - ({2*x})({y}) + {y}**2"
+                st.text(f"ผลลัพธ์จากสูตร (x+y)**2: {ans1}")
+                st.text(f"เท่ากับ {(x**2)} + {2*x}{y} + ({y})**2")
+                st.markdown("")
+                st.text(f"ผลลัพธ์จากสูตร (x-y)**2: {ans2}")
+                st.text(f"เท่ากับ {(x**2)} + {2*x}{y} + ({y})**2") 
+            except ValueError:
+                try:
+                    y = int(y)
+                    ans1 = f"{x}**2 + ({2*y})({x}) + {y}**2"
+                    ans2 = f"{x}**2 - ({2*y})({x}) + {y}**2"
+                    st.text(f"ผลลัพธ์จากสูตร (x+y)**2: {ans1}")
+                    st.text(f"เท่ากับ ({x})**2 + {2*x}{y} + {y**2}")
+                    st.markdown("")
+                    st.text(f"ผลลัพธ์จากสูตร (x-y)**2: {ans2}")
+                    st.text(f"เท่ากับ ({x})**2 - {2*x}{y} + {y**2}")
+                except ValueError:
+                    ans1 = f"{x}**2 + {2}{x}{y} + {y}**2"
+                    ans2 = f"{x}**2 - {2}{x}{y} + {y}**2"
+                    st.text(f"ผลลัพธ์จากสูตร (x+y)**2: {ans1}")
+                    st.text(f"เท่ากับ ({x})**2 + {2}{x}{y} + ({y})**2")
+                    st.markdown("")
+                    st.text(f"ผลลัพธ์จากสูตร (x-y)**2: {ans2}")
+                    st.text(f"เท่ากับ ({x})**2 - {2}{x}{y} + ({y})**2")   
+
 if selected == "สูตรกำลังสอง(Quadratic Formula)":
 
     st.title("*สูตรกำลังสอง(Quadratic Formula)*")
@@ -87,29 +117,29 @@ if selected == "ผลบวก/ลบกำลังสาม":
             x = int(x)
             y = int(y)
             st.header("*ผลบวกกำลังสาม*")
-            st.write(f"ผลลัพธ์: ({x}+{y})({x**2}-{x*y}+{y**2})")
+            st.text(f"ผลลัพธ์: ({x}+{y})({x**2}-{x*y}+{y**2})")
             st.markdown("")
             st.header("*ผลต่างกำลังสาม*")
-            st.write(f"ผลลัพธ์: ({x}-{y})({x**2}+{x*y}-{y**2})") 
+            st.text(f"ผลลัพธ์: ({x}-{y})({x**2}+{x*y}-{y**2})") 
         except ValueError:
             try:
                 x = int(x)
                 st.header("*ผลบวกกำลังสาม*")
-                st.write(f"ผลลัพธ์: ({x}+{y})({x**2}-({x})({y})+({y})**2)")
+                st.text(f"ผลลัพธ์: ({x}+{y})({x**2}-({x})({y})+({y})**2)")
                 st.markdown("")
                 st.header("*ผลต่างกำลังสาม*")
-                st.write(f"ผลลัพธ์: ({x}-{y})({x**2}+({x})({y})-({y})**2)")
+                st.text(f"ผลลัพธ์: ({x}-{y})({x**2}+({x})({y})-({y})**2)")
             except ValueError:
                 try:
                     y = int(y)
                     st.header("*ผลบวกกำลังสาม*")
-                    st.write(f"ผลลัพธ์: ({x}+{y})(({x})**2-({x})({y})+{y**2})")
+                    st.text(f"ผลลัพธ์: ({x}+{y})(({x})**2-({x})({y})+{y**2})")
                     st.markdown("")
                     st.header("*ผลต่างกำลังสาม*")
-                    st.write(f"ผลลัพธ์: ({x}-{y})(({x})**2+({x})({y})-{y**2})")
+                    st.text(f"ผลลัพธ์: ({x}-{y})(({x})**2+({x})({y})-{y**2})")
                 except ValueError:
                     st.header("*ผลบวกกำลังสาม*")
-                    st.write(f"ผลลัพธ์: ({x}+{y})(({x})**2-({x})({y})+({y})**2)")
+                    st.text(f"ผลลัพธ์: ({x}+{y})(({x})**2-({x})({y})+({y})**2)")
                     st.markdown("")
                     st.header("*ผลต่างกำลังสาม*")
-                    st.write(f"ผลลัพธ์: ({x}-{y})(({x})**2+({x})({y})-({y})**2)")
+                    st.text(f"ผลลัพธ์: ({x}-{y})(({x})**2+({x})({y})-({y})**2)")   
