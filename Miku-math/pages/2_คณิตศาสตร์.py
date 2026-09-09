@@ -41,8 +41,8 @@ if selected == "กำลังสองสมบูรณ์":
         except ValueError:
             try:
                 x = int(x)
-                ans1 = f"{x}**2 + ({2*x})({y}) + {y}**2"
-                ans2 = f"{x}**2 - ({2*x})({y}) + {y}**2"
+                ans1 = f"{x}**2 + ({2*x})({y}) + ({y})**2"
+                ans2 = f"{x}**2 - ({2*x})({y}) + ({y})**2"
                 st.text(f"ผลลัพธ์จากสูตร (x+y)**2: {ans1}")
                 st.text(f"เท่ากับ {(x**2)} + {2*x}{y} + ({y})**2")
                 st.markdown("")
@@ -51,8 +51,8 @@ if selected == "กำลังสองสมบูรณ์":
             except ValueError:
                 try:
                     y = int(y)
-                    ans1 = f"{x}**2 + ({2*y})({x}) + {y}**2"
-                    ans2 = f"{x}**2 - ({2*y})({x}) + {y}**2"
+                    ans1 = f"({x})**2 + ({2*y})({x}) + {y}**2"
+                    ans2 = f"({x})**2 - ({2*y})({x}) + {y}**2"
                     st.text(f"ผลลัพธ์จากสูตร (x+y)**2: {ans1}")
                     st.text(f"เท่ากับ ({x})**2 + {2*x}{y} + {y**2}")
                     st.markdown("")
