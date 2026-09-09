@@ -79,18 +79,18 @@ if xIn != "" and eq != "":
     fig = setup(xmax*-1,xmax,f(xmax*(101/100))*-1,f(xmax*(101/100)),1)
 
     if eq != '' or xIn != '':
-        with open("Miku-math\pages\[Hatsune Miku (Text To Speech)]Here!......raphs.mp3", "rb") as f:
-            audio = base64.b64encode(f.read()).decode()
+        #with open("Miku-math\pages\[Hatsune Miku (Text To Speech)]Here!......raphs.mp3", "rb") as f:
+            #audio = base64.b64encode(f.read()).decode()
 
-        components.html(f"""
-        <audio id="player">
-            <source src="data:audio/mp3;base64,{audio}" type="audio/mp3">
-        </audio>
+        #components.html(f"""
+        #<audio id="player">
+            #<source src="data:audio/mp3;base64,{audio}" type="audio/mp3">
+        #</audio>
 
-        <script>
-        document.getElementById("player").play();
-        </script>
-        """, height=0)
+        #<script>
+        #document.getElementById("player").play();
+        #</script>
+        #""", height=0)
         st.text("ตัวอย่าง:")
         st.pyplot(fig)
         plt.close()
