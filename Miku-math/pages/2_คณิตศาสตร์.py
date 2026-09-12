@@ -14,8 +14,8 @@ if selected == "ผลต่างกำลังสอง":
 
     st.title("*ผลต่างกำลังสอง*")
 
-    x = st.text_input("ใส่ค่า $x$")
-    y = st.text_input("ใส่ค่า $y$")
+    x = st.text_input("ใส่ค่า $x$",placeholder="ตัวเลข หรือ ตัวแปร")
+    y = st.text_input("ใส่ค่า $y$",placeholder="ตัวเลข หรือ ตัวแปร")
 
     if x != "" and y != "":
         st.text(f"ผลลัพธ์: ({x}+{y})({x}-{y})")
@@ -24,8 +24,8 @@ if selected == "กำลังสองสมบูรณ์":
 
     st.title("*กำลังสองสมบูรณ์*")
 
-    x = st.text_input("ใส่ค่า $x$")
-    y = st.text_input("ใส่ค่า $y$")
+    x = st.text_input("ใส่ค่า $x$",placeholder="ตัวเลข หรือ ตัวแปร")
+    y = st.text_input("ใส่ค่า $y$",placeholder="ตัวเลข หรือ ตัวแปร")
 
     if x != "" and y != "":
         try:
@@ -71,9 +71,9 @@ if selected == "สูตรกำลังสอง(Quadratic Formula)":
 
     st.title("*สูตรกำลังสอง(Quadratic Formula)*")
 
-    a = st.text_input("a:")
-    b = st.text_input("b:")
-    c = st.text_input("c:")
+    a = st.text_input("a:",placeholder="ตัวเลข")
+    b = st.text_input("b:",placeholder="ตัวเลข")
+    c = st.text_input("c:",placeholder="ตัวเลข")
 
     if a != "" and b != "" and c != "":
         a = int(a)
@@ -110,8 +110,8 @@ if selected == "สูตรกำลังสอง(Quadratic Formula)":
 if selected == "ผลบวก/ลบกำลังสาม":
     st.title("*ผลบวก/ลบกำลังสาม*")
 
-    x = st.text_input("ใส่ค่า $x$")
-    y = st.text_input("ใส่ค่า $y$")
+    x = st.text_input("ใส่ค่า $x$",placeholder="ตัวเลข หรือ ตัวแปร")
+    y = st.text_input("ใส่ค่า $y$",placeholder="ตัวเลข หรือ ตัวแปร")
 
     if x != "" and y != "":
         try:
@@ -148,8 +148,8 @@ if selected == "ผลบวก/ลบกำลังสาม":
 if selected == "กำลังสามสมบูรณ์":
     st.title("*ผลบวก/ลบกำลังสาม*")
 
-    x = st.text_input("ใส่ค่า $x$")
-    y = st.text_input("ใส่ค่า $y$")
+    x = st.text_input("ใส่ค่า $x$",placeholder="ตัวเลข หรือ ตัวแปร")
+    y = st.text_input("ใส่ค่า $y$",placeholder="ตัวเลข หรือ ตัวแปร")
 
     if x != "" and y != "":
         st.header("*กำลังสามสมบูรณ์*")
