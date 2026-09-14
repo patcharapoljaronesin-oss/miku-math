@@ -27,7 +27,7 @@ if selected == "สูตรการเคลื่อนที่แนวต�
     for i in var:
         if i != "":
             try:
-                int(i)
+                float(i)
                 inputCounter += 1
             except ValueError:
                 st.error("โปรดใส่ตัวเลข")
