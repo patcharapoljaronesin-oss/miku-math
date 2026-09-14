@@ -63,8 +63,8 @@ if selected == "สูตรการเคลื่อนที่แนวต�
         if t != "" and u != "" and a != "":
             st.markdown("$v = u + at$")
             st.markdown(f"$v =$ {u + (a * t)} $m/s$")
-            st.markdown("$s = ut - ½at²$")
-            st.markdown(f"$s =$ {(u * t) - ((0.5) * a * (t**2))} $m$")
+            st.markdown("$s = ut + ½at²$")
+            st.markdown(f"$s =$ {(u * t) + ((0.5) * a * (t**2))} $m$")
         # s = ((u + v)/2) * t
         # a = (v - u) / t  
         elif t != "" and u != "" and v != "":
