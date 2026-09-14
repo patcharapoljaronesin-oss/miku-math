@@ -59,38 +59,36 @@ if selected == "สูตรการเคลื่อนที่แนวต�
             a = None
             
         # v = u + at
-        if t and u and a:
+        # s = ut - 1/2at²
+        if t != "" and u != "" and a != "":
             st.markdown("$v = u + at$")
             st.markdown(f"$v =$ {u + (a * t)} $m/s$")
-        # s = ((u + v)/2) * t
-        elif t and u and v:
-            st.markdown("$s = [(u + v) / 2] * t$")
-            st.markdown(f"$s =$ {((u + v) / 2) * t} $m$")
-        # s = ut - 1/2at²
-        elif u and t and a:
             st.markdown("$s = ut - ½at²$")
             st.markdown(f"$s =$ {(u * t) - ((0.5) * a * (t**2))} $m$")
+        # s = ((u + v)/2) * t
+        # a = (v - u) / t  
+        elif t != "" and u != "" and v != "":
+            st.markdown("$s = [(u + v) / 2] * t$")
+            st.markdown(f"$s =$ {((u + v) / 2) * t} $m$")
+            st.markdown("$a = (v - u) / t$")
+            st.markdown(f"$a =$ {(v - u) / t} $m/s²$")
         # s = vt - 1/2at²
-        elif v and t and a:
+        elif v != "" and t != "" and a != "":
             st.markdown("$s = vt - ½at²$")
             st.markdown(f"$s =$ {(v * t) - ((0.5) * a * (t**2))} $m$")
         # v² = u² + as
-        elif u and a and s:
+        elif u != "" and a != "" and s != "":
             st.markdown("$v² = u² + as$")
             st.markdown(f"$v² =$ {(u**2) + (a * s)} $m/s$")
         # a = (2(s-ut))/t²
-        elif s and t and u:
+        elif s != "" and t != "" and u != "":
             st.markdown("$a = (2(s - ut)) / t²$")
             st.markdown(f"$a =$ {(2*(s - (u * t))) / (t**2)} $m/s²$")
         # a = (2(s-vt))/t²
-        elif s and t and v:
+        elif s != "" and t != "" and v != "":
             st.markdown("$a = s/vt + 2/t²$")
             st.markdown(f"$a =$ {(2*(s - (v * t))) / (t**2)} $m/s²$")
         # a = (v² - u²)/2s
-        elif v and u and s:
+        elif v != "" and u != "" and s != "":
             st.markdown("$a = (v² - u²) / 2s$")
             st.markdown(f"$a =$ {(v**2 - u**2) / (2*s)} $m/s²$")
-        # a = (v - u) / t
-        elif v and u and t:
-            st.markdown("$a = (v - u) / t$")
-            st.markdown(f"$a =$ {(v - u) / t} $m/s²$")
