@@ -64,7 +64,7 @@ if selected == "สูตรการเคลื่อนที่แนวต�
             st.markdown(f"$v =$ {u + (a * t)} $m/s$")
         # s = ((u + v)/2) * t
         elif t and u and v:
-            st.markdown("$s = [(u + v) / 2] * t")
+            st.markdown("$s = [(u + v) / 2] * t$")
             st.markdown(f"$s =$ {((u + v) / 2) * t} $m$")
         # s = ut - 1/2at²
         elif u and t and a:
