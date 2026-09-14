@@ -87,7 +87,7 @@ if selected == "สูตรกำลังสอง(Quadratic Formula)":
 
             print(sqrt)
             print("เป็นทศนิยม")
-            if "." in CheckSqrt and CheckSqrt[CheckSqrt.index(".")+2] and Discriminant > 0:
+            if Discriminant > 0 and "." in CheckSqrt and CheckSqrt[CheckSqrt.index(".")+2] :
                 st.text(f"-({b}) ± √({Discriminant}) / {2*a}")
 
             elif Discriminant > 0:
