@@ -6,180 +6,89 @@ from streamlit_option_menu import option_menu
 with st.sidebar:
     selected = option_menu(
         menu_title="สูตร",
-        options=["ผลต่างกำลังสอง", "กำลังสองสมบูรณ์", "สูตรกำลังสอง(Quadratic Formula)", "ผลบวก/ลบกำลังสาม", "กำลังสามสมบูรณ์"],
+        options=["สูตรการเคลื่อนที่แนวตรง"],
         icons=["1-circle", "2-circle", "3-circle", "4-circle", "5-circle"],
         menu_icon="calculator"
     )
-if selected == "ผลต่างกำลังสอง":
+if selected == "สูตรการเคลื่อนที่แนวตรง":
+    inputCounter = 0
+    check = True
 
-    st.title("*ผลต่างกำลังสอง*")
-
-    x = st.text_input("ใส่ค่า $x$",placeholder="ตัวเลข หรือ ตัวแปร")
-    y = st.text_input("ใส่ค่า $y$",placeholder="ตัวเลข หรือ ตัวแปร")
-
-    if x != "" and y != "":
-        st.text(f"ผลลัพธ์: ({x}+{y})({x}-{y})")
-
-if selected == "กำลังสองสมบูรณ์":
-
-    st.title("*กำลังสองสมบูรณ์*")
-
-    x = st.text_input("ใส่ค่า $x$",placeholder="ตัวเลข หรือ ตัวแปร")
-    y = st.text_input("ใส่ค่า $y$",placeholder="ตัวเลข หรือ ตัวแปร")
-
-    if x != "" and y != "":
-        try:
-            x = int(x)
-            y = int(y)
-            ans1 = f"{x}² + {2*x*y} + {y}²"
-            ans2 = f"{x}² - {2*x*y} + {y}²"
-            st.text(f"ผลลัพธ์จากสูตร (x+y)²: {ans1}")
-            st.text(f"เท่ากับ {(x**2) + (2*x*y) + (y**2)}")
-            st.text("")
-            st.text(f"ผลลัพธ์จากสูตร (x-y)²: {ans2}")
-            st.text(f"เท่ากับ {(x**2) - (2* x*y) + (y**2)}") 
-        except ValueError:
+    st.title("*สูตรการเคลื่อนที่แนวตรง*")
+    st.markdown("**<span style='color:red;'>**หมายเหตุ: ใส่ได้แค่ 3 ค่าเท่านั้น**</span>**", unsafe_allow_html=True)
+                      
+    var = [
+        st.text_input("ใส่ค่า $s$(ระยะทาง)",placeholder="ตัวเลข หากไม่มีค่าปล่อยว่าง"), #s
+        st.text_input("ใส่ค่า $t$(เวลา)",placeholder="ตัวเลข หากไม่มีค่าปล่อยว่าง"), #t
+        st.text_input("ใส่ค่า $u$(ควาวเร็วเริ่มต้น)",placeholder="ตัวเลข หากไม่มีค่าปล่อยว่าง"), #u
+        st.text_input("ใส่ค่า $v$(ความเร็วสุดท้าย)",placeholder="ตัวเลข หากไม่มีค่าปล่อยว่าง"), #v
+        st.text_input("ใส่ค่า $a$(ความเร่ง)",placeholder="ตัวเลข หากไม่มีค่าปล่อยว่าง") #a
+    ]
+    for i in var:
+        if i != "":
             try:
-                x = int(x)
-                ans1 = f"{x}² + ({2*x})({y}) + ({y})²"
-                ans2 = f"{x}² - ({2*x})({y}) + ({y})²"
-                st.text(f"ผลลัพธ์จากสูตร (x+y)²: {ans1}")
-                st.text(f"เท่ากับ {(x**2)} + ({2*x})({y}) + ({y})²")
-                st.markdown("")
-                st.text(f"ผลลัพธ์จากสูตร (x-y)**2: {ans2}")
-                st.text(f"เท่ากับ {(x**2)} + ({2*x})({y}) + ({y})²") 
+                float(i)
+                inputCounter += 1
             except ValueError:
-                try:
-                    y = int(y)
-                    ans1 = f"({x})² + ({2*y})({x}) + {y}²"
-                    ans2 = f"({x})² - ({2*y})({x}) + {y}²"
-                    st.text(f"ผลลัพธ์จากสูตร (x+y)²: {ans1}")
-                    st.text(f"เท่ากับ ({x})² + ({2*y})({x}) + {y**2}")
-                    st.markdown("")
-                    st.text(f"ผลลัพธ์จากสูตร (x-y)²: {ans2}")
-                    st.text(f"เท่ากับ ({x})² - ({2*y})({x}) + {y**2}")
-                except ValueError:
-                    ans1 = f"{x}² + {2}{x}{y} + {y}²"
-                    ans2 = f"{x}² - {2}{x}{y} + {y}²"
-                    st.text(f"ผลลัพธ์จากสูตร (x+y)**2: {ans1}")
-                    st.text(f"เท่ากับ ({x})² + ({2})({x})({y}) + ({y})²")
-                    st.markdown("")
-                    st.text(f"ผลลัพธ์จากสูตร (x-y)²: {ans2}")
-                    st.text(f"เท่ากับ ({x})² - ({2})({x})({y}) + ({y})²")   
+                st.error("โปรดใส่ตัวเลข")
+                check = False
+    if inputCounter > 3:
+        check = False
+        st.error("โปรดใส่แค่ 3 ค่า")
 
-if selected == "สูตรกำลังสอง(Quadratic Formula)":
-
-    st.title("*สูตรกำลังสอง(Quadratic Formula)*")
-
-    a = st.text_input("a:",placeholder="ตัวเลข")
-    b = st.text_input("b:",placeholder="ตัวเลข")
-    c = st.text_input("c:",placeholder="ตัวเลข")
-
-    if a != "" and b != "" and c != "":
-        a = int(a)
-        b = int(b)
-        c = int(c)
-        Discriminant = (b**2) - (4*a*c)
-
-        def equation(a,b,c):
-            sqrt = np.sqrt((b**2) - (4*a*c))
-            CheckSqrt = str(sqrt)
-
-            print(sqrt)
-            print("เป็นทศนิยม")
-            if "." in CheckSqrt and CheckSqrt[CheckSqrt.index(".")+2] and Discriminant >= 0:
-                st.text(f"-({b}) ± √({Discriminant}) / {2*a}")
-
-            elif Discriminant > 0:
-                if ((-1 * b) + sqrt) % (2*a) == 0:
-                   st.text(f"{int(((-1 * b) + sqrt) / (2*a))}  , {int(((-1 * b) - sqrt) / (2*a))}")
-                else:         
-                   st.text(f"{int((-1 * b) + sqrt)} / {2*a} , {int((-1 * b) - sqrt)} / {2*a}")
-
-            elif Discriminant == 0:
-                if ((-1 * b) + sqrt) % (2*a) == 0:
-                   st.text(f"{int((-1 * b) / (2*a))}")
-                else:         
-                    st.text(f"{int((-1 * b))} / {2*a}")
-
-            elif Discriminant < 0:
-                st.text("ไม่มีคำตอบเป็นจำนวนจริง")
-
-        equation(a,b,c)
-
-if selected == "ผลบวก/ลบกำลังสาม":
-    st.title("*ผลบวก/ลบกำลังสาม*")
-
-    x = st.text_input("ใส่ค่า $x$",placeholder="ตัวเลข หรือ ตัวแปร")
-    y = st.text_input("ใส่ค่า $y$",placeholder="ตัวเลข หรือ ตัวแปร")
-
-    if x != "" and y != "":
-        try:
-            x = int(x)
-            y = int(y)
-            st.header("*ผลบวกกำลังสาม*")
-            st.text(f"ผลลัพธ์: ({x}+{y})({x**2}-{x*y}+{y**2})")
-            st.markdown("")
-            st.header("*ผลต่างกำลังสาม*")
-            st.text(f"ผลลัพธ์: ({x}-{y})({x**2}+{x*y}-{y**2})") 
-        except ValueError:
-            try:
-                x = int(x)
-                st.header("*ผลบวกกำลังสาม*")
-                st.text(f"ผลลัพธ์: ({x}+{y})({x**2}-({x})({y})+({y})²)")
-                st.markdown("")
-                st.header("*ผลต่างกำลังสาม*")
-                st.text(f"ผลลัพธ์: ({x}-{y})({x**2}+({x})({y})-({y})²)")
-            except ValueError:
-                try:
-                    y = int(y)
-                    st.header("*ผลบวกกำลังสาม*")
-                    st.text(f"ผลลัพธ์: ({x}+{y})(({x})² - ({x})({y})+{y**2})")
-                    st.markdown("")
-                    st.header("*ผลต่างกำลังสาม*")
-                    st.text(f"ผลลัพธ์: ({x}-{y})(({x})² + ({x})({y})-{y**2})")
-                except ValueError:
-                    st.header("*ผลบวกกำลังสาม*")
-                    st.text(f"ผลลัพธ์: ({x}+{y})(({x})² - ({x})({y})+({y})²)")
-                    st.markdown("")
-                    st.header("*ผลต่างกำลังสาม*")
-                    st.text(f"ผลลัพธ์: ({x}-{y})(({x})² + ({x})({y})-({y})²)")
-
-if selected == "กำลังสามสมบูรณ์":
-    st.title("*ผลบวก/ลบกำลังสาม*")
-
-    x = st.text_input("ใส่ค่า $x$",placeholder="ตัวเลข หรือ ตัวแปร")
-    y = st.text_input("ใส่ค่า $y$",placeholder="ตัวเลข หรือ ตัวแปร")
-
-    if x != "" and y != "":
-        st.header("*กำลังสามสมบูรณ์*")
-        try:
-            x = int(x)
-            y = int(y)
-            st.header("*ผลบวกกำลังสาม*")
-            st.text(f"ผลลัพธ์: {x**3} + {3*(x**2)*y} + {3*x*(y**2)} + {y**3} = {(x**3) + (3*(x**2)*y) + (3*x*(y**2)) + (y**3)}") 
-            st.markdown("")
-            st.header("*ผลต่างกำลังสาม*")
-            st.text(f"ผลลัพธ์: {x**3} - {3*(x**2)*y} + {3*x*(y**2)} - {y**3} = {(x**3) - (3*(x**2)*y) + (3*x*(y**2)) - (y**3)}") 
-        except ValueError:
-            try:
-                x = int(x)
-                st.header("*ผลบวกกำลังสาม*")
-                st.text(f"ผลลัพธ์: {x**3} + ({3*(x**2)})({y}) + ({3*x})({y})² + ({y})³")
-                st.markdown("")
-                st.header("*ผลต่างกำลังสาม*")
-                st.text(f"ผลลัพธ์: {x**3} - ({3*(x**2)})({y}) + ({3*x})({y})² - ({y})³")
-            except ValueError:
-                try:
-                    y = int(y)
-                    st.header("*ผลบวกกำลังสาม*")
-                    st.text(f"ผลลัพธ์: ({x})³ + ({3*y})({x})² + ({3*(y**2)})({x}) + {y**3}")
-                    st.markdown("")
-                    st.header("*ผลต่างกำลังสาม*")
-                    st.text(f"ผลลัพธ์: ({x})³ - ({3*y})({x})² + ({3*(y**2)})({x}) - {y**3}")
-                except ValueError:
-                    st.header("*ผลบวกกำลังสาม*")
-                    st.text(f"ผลลัพธ์: ({x})³ + ({3})({y})({x})² + ({3})({x})({y})² + ({y})³")
-                    st.markdown("")
-                    st.header("*ผลต่างกำลังสาม*")
-                    st.text(f"ผลลัพธ์: ({x})³ - ({3})({y})({x})² + ({3})({x})({y})² - ({y})³")
+    if check == True and inputCounter == 3:
+        if var[0] != "":
+            s = float(var[0])
+        else:
+            s = None
+        if var[1] != "":
+            t = float(var[1])
+        else:
+            t = None
+        if var[2] != "":
+            u = float(var[2])
+        else:
+            u = None
+        if var[3] != "":
+            v = float(var[3])
+        else:
+            v = None
+        if var[4] != "":
+            a = float(var[4])
+        else:
+            a = None
+            
+        # v = u + at
+        # s = ut - 1/2at²
+        if t and u and a:
+            st.markdown("$v = u + at$")
+            st.markdown(f"$v =$ {u + (a * t)} $m/s$")
+            st.markdown("$s = ut - ½at²$")
+            st.markdown(f"$s =$ {(u * t) - ((0.5) * a * (t**2))} $m$")
+        # s = ((u + v)/2) * t
+        # a = (v - u) / t  
+        elif t and u and v:
+            st.markdown("$s = [(u + v) / 2] * t$")
+            st.markdown(f"$s =$ {((u + v) / 2) * t} $m$")
+            st.markdown("$a = (v - u) / t$")
+            st.markdown(f"$a =$ {(v - u) / t} $m/s²$")
+        # s = vt - 1/2at²
+        elif v and t and a:
+            st.markdown("$s = vt - ½at²$")
+            st.markdown(f"$s =$ {(v * t) - ((0.5) * a * (t**2))} $m$")
+        # v² = u² + as
+        elif u and a and s:
+            st.markdown("$v² = u² + as$")
+            st.markdown(f"$v² =$ {(u**2) + (a * s)} $m/s$")
+        # a = (2(s-ut))/t²
+        elif s and t and u:
+            st.markdown("$a = (2(s - ut)) / t²$")
+            st.markdown(f"$a =$ {(2*(s - (u * t))) / (t**2)} $m/s²$")
+        # a = (2(s-vt))/t²
+        elif s and t and v:
+            st.markdown("$a = s/vt + 2/t²$")
+            st.markdown(f"$a =$ {(2*(s - (v * t))) / (t**2)} $m/s²$")
+        # a = (v² - u²)/2s
+        elif v and u and s:
+            st.markdown("$a = (v² - u²) / 2s$")
+            st.markdown(f"$a =$ {(v**2 - u**2) / (2*s)} $m/s²$")
