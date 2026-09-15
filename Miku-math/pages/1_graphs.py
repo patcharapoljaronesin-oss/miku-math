@@ -16,7 +16,7 @@ def play():
 xIn = st.text_input('ใส่ค่า $x$') 
 xlist = list(map(float, xIn.split()))
 X = symbols('x')
-eq = st.text_input('ใส่สมการของ $y$')
+eq = st.text_input('ใส่สมการของ $y$',placeholder="ตัวเลข เช่น -5 -3 -1 0 1 3 5")
 if xIn != "" and eq != "":
     exper = sympify(eq)
     f = lambdify(X, exper, "numpy")
