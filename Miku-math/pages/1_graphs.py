@@ -13,10 +13,10 @@ import base64
 def play():
     st.session_state.play = True
 
-xIn = st.text_input('ใส่ค่า $x$') 
+xIn = st.text_input('ใส่ค่า $x$',placeholder="ตัวเลข เช่น -5 -3 -1 0 1 3 5") 
 xlist = list(map(float, xIn.split()))
 X = symbols('x')
-eq = st.text_input('ใส่สมการของ $y$',placeholder="ตัวเลข เช่น -5 -3 -1 0 1 3 5")
+eq = st.text_input('ใส่สมการของ $y$',placeholder="เช่น ((x-1)**2)-1")
 if xIn != "" and eq != "":
     exper = sympify(eq)
     f = lambdify(X, exper, "numpy")
