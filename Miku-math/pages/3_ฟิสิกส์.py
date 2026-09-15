@@ -14,7 +14,7 @@ if selected == "สูตรการเคลื่อนที่แนวต�
     inputCounter = 0
     check = True
 
-    st.title("*สูตรการเคลื่อนที่แนวตรง*")
+    st.title("**สูตรการเคลื่อนที่แนวตรง**")
     st.markdown("**<span style='color:red;'>**หมายเหตุ: ใส่ได้แค่ 3 ค่าเท่านั้น**</span>**", unsafe_allow_html=True)
                       
     var = [
