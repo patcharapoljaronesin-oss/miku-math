@@ -108,3 +108,4 @@ if selected == "สูตรการเคลื่อนที่แนวต�
         elif u != None and v != None and a != None:
             st.markdown("$t = (v-u)/a$")
             st.markdown(f"$t =$ {(v-u)/a} $s$")
+st.image("https://www.google.com/imgres?q=hatsune%20miku%20chibi&imgurl=https%3A%2F%2Fi.redd.it%2F4dv4gsxdbikf1.jpeg&imgrefurl=https%3A%2F%2Fwww.reddit.com%2Fr%2Fhatsune%2Fcomments%2F1mwy108%2Fchibi_miku%2F&docid=DOrDCTRuw5U5GM&tbnid=cpJ7Sne35Leb2M&vet=12ahUKEwi05viZrvCWAxVXSWwGHUxeCpUQnPAOegUI9AEQAA..i&w=1924&h=2048&hcb=2&ved=2ahUKEwi05viZrvCWAxVXSWwGHUxeCpUQnPAOegUI9AEQAA")
