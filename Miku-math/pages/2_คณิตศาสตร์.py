@@ -183,3 +183,6 @@ if selected == "กำลังสามสมบูรณ์":
                     st.markdown("")
                     st.header("*ผลต่างกำลังสาม*")
                     st.text(f"ผลลัพธ์: ({x})³ - ({3})({y})({x})² + ({3})({x})({y})² - ({y})³")
+col1, col2, col3 = st.columns([1, 2, 1])
+with col2:
+    st.image("https://images.alphacoders.com/838/838813.jpg", width=500)
